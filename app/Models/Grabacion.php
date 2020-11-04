@@ -9,4 +9,5 @@ class Grabacion extends Model
 {
     use HasFactory;
     protected $table = "grabaciones";
+    protected $fillable = ['fecha', 'tema', 'observaciones', 'enlace'];
 }

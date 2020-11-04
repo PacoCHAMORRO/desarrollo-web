@@ -43,12 +43,7 @@ class GrabacionController extends Controller
             'enlace' => 'required|url',
         ]);
 
-        $grabacion = new Grabacion();
-        $grabacion->fecha = $request->fecha;
-        $grabacion->tema = $request->tema;
-        $grabacion->enlace = $request->enlace;
-        $grabacion->observaciones = $request->observaciones ?? '';
-        $grabacion->save();
+        Grabacion::create($request->all());
 
         return redirect()->route('grabacion.index');
     }
