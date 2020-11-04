@@ -11,7 +11,7 @@
     <ul>
         <li>Fecha: {{ $grabacion->fecha }}</li>
         <li>Tema: {{ $grabacion->tema }}</li>
-        <li>Observaciones: {{ $grabacion->enlace }}</li>
+        <li>Observaciones: {{ $grabacion->observaciones }}</li>
         <li>Enlace: {{ $grabacion->enlace }}</li>
     </ul>
 </body>
