@@ -14,7 +14,9 @@ class GrabacionController extends Controller
      */
     public function index()
     {
-        //
+        $grabaciones = Grabacion::all();
+
+        return view('grabaciones.grabacionIndex', compact('grabaciones'));
     }
 
     /**
@@ -24,7 +26,7 @@ class GrabacionController extends Controller
      */
     public function create()
     {
-        //
+        return view('grabaciones.grabacionForm');
     }
 
     /**
@@ -35,7 +37,20 @@ class GrabacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'fecha' => ['required', 'date'],
+            'tema' => 'required|min:5|max:255',
+            'enlace' => 'required|url',
+        ]);
+
+        $grabacion = new Grabacion();
+        $grabacion->fecha = $request->fecha;
+        $grabacion->tema = $request->tema;
+        $grabacion->enlace = $request->enlace;
+        $grabacion->observaciones = $request->observaciones ?? '';
+        $grabacion->save();
+
+        return redirect()->route('grabacion.index');
     }
 
     /**
