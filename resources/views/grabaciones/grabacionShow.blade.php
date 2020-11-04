@@ -7,6 +7,13 @@
 <body>
     <a href="{{ route('grabacion.index') }}">Listado de Grabaciones</a>
     <a href="{{ route('grabacion.edit', [$grabacion->id]) }}">Editar Grabación</a>
+
+    <form action="{{ route('grabacion.destroy', [$grabacion]) }}" method="POST">
+        @method('DELETE')
+        @csrf
+        <button type="submit">Eliminar</button>
+    </form>
+
     <hr>
     <h1>Grabación # {{ $grabacion->id }}</h1>
     <ul>

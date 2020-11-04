@@ -99,6 +99,7 @@ class GrabacionController extends Controller
      */
     public function destroy(Grabacion $grabacion)
     {
-        //
+        $grabacion->delete();
+        return redirect()->route('grabacion.index');
     }
 }
