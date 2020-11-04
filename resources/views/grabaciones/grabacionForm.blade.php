@@ -6,7 +6,23 @@
 </head>
 <body>
     <h1>Crear Grabación</h1>
-    <form action="{{ route('grabacion.store') }}" method="POST">
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    @if(isset($grabacion))
+        <form action="{{ route('grabacion.update', [$grabacion]) }}" method="POST">
+        @method('patch')
+    @else
+        <form action="{{ route('grabacion.store') }}" method="POST">
+    @endif
         @csrf
         <label for="fecha">Fecha:</label>
         <input type="date" name="fecha" value="{{ old('fecha') ?? $grabacion->fecha ?? '' }}">

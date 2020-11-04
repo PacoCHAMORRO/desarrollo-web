@@ -67,7 +67,7 @@ class GrabacionController extends Controller
      */
     public function edit(Grabacion $grabacion)
     {
-        //
+        return view('grabaciones.grabacionForm', compact('grabacion'));
     }
 
     /**
@@ -79,7 +79,16 @@ class GrabacionController extends Controller
      */
     public function update(Request $request, Grabacion $grabacion)
     {
-        //
+        $request->validate([
+            'fecha' => ['required', 'date'],
+            'tema' => 'required|min:5|max:255',
+            'enlace' => 'required|url',
+        ]);
+
+        Grabacion::where('id', $grabacion->id)
+            ->update($request->except('_method', '_token'));
+
+        return redirect()->route('grabacion.show', [$grabacion]);
     }
 
     /**

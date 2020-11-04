@@ -6,6 +6,7 @@
 </head>
 <body>
     <a href="{{ route('grabacion.index') }}">Listado de Grabaciones</a>
+    <a href="{{ route('grabacion.edit', [$grabacion->id]) }}">Editar Grabación</a>
     <hr>
     <h1>Grabación # {{ $grabacion->id }}</h1>
     <ul>
