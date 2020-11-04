@@ -18,23 +18,23 @@
     <title>Empty page - tabler.github.io - a responsive, flat and full featured admin template</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
-    <script src="./assets/js/require.min.js"></script>
+    <script src="{{ asset('assets/js/require.min.js') }}"></script>
     <script>
       requirejs.config({
           baseUrl: '.'
       });
     </script>
     <!-- Dashboard Core -->
-    <link href="./assets/css/dashboard.css" rel="stylesheet" />
-    <script src="./assets/js/dashboard.js"></script>
+    <link href="{{ asset('assets/css/dashboard.css') }}" rel="stylesheet" />
+    <script src="{{ asset('assets/js/dashboard.js') }}"></script>
     <!-- c3.js Charts Plugin -->
-    <link href="./assets/plugins/charts-c3/plugin.css" rel="stylesheet" />
-    <script src="./assets/plugins/charts-c3/plugin.js"></script>
+    <link href="{{ asset('assets/plugins/charts-c3/plugin.css') }}" rel="stylesheet" />
+    <script src="{{ asset('assets/plugins/charts-c3/plugin.js') }}"></script>
     <!-- Google Maps Plugin -->
-    <link href="./assets/plugins/maps-google/plugin.css" rel="stylesheet" />
-    <script src="./assets/plugins/maps-google/plugin.js"></script>
+    <link href="{{ asset('assets/plugins/maps-google/plugin.css') }}" rel="stylesheet" />
+    <script src="{{ asset('assets/plugins/maps-google/plugin.js') }}"></script>
     <!-- Input Mask Plugin -->
-    <script src="./assets/plugins/input-mask/plugin.js"></script>
+    <script src="{{ asset('assets/plugins/input-mask/plugin.js') }}"></script>
   </head>
   <body class="">
     <div class="page">
@@ -43,7 +43,7 @@
           <div class="container">
             <div class="d-flex">
               <a class="header-brand" href="./index.html">
-                <img src="./demo/brand/tabler.svg" class="header-brand-img" alt="tabler logo">
+                <img src="{{ asset('brand/tabler.svg') }}" class="header-brand-img" alt="tabler logo">
               </a>
               <div class="d-flex order-lg-2 ml-auto">
                 <div class="nav-item d-none d-md-flex">
@@ -82,7 +82,7 @@
                 </div>
                 <div class="dropdown">
                   <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
-                    <span class="avatar" style="background-image: url(./demo/faces/female/25.jpg)"></span>
+                    <span class="avatar" {{--style="background-image: url(./demo/faces/female/25.jpg)"--}}></span>
                     <span class="ml-2 d-none d-lg-block">
                       <span class="text-default">Jane Pearson</span>
                       <small class="text-muted d-block mt-1">Administrator</small>
