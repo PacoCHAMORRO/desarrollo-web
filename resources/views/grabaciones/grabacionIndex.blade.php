@@ -7,7 +7,7 @@
 <body>
     <a href="{{ route('grabacion.create') }}">Nueva Grabación</a>
     <hr>
-    <table class="table">
+    <table border="1">
         <tr>
             <th>ID</th>
             <th>Fecha</th>
@@ -18,7 +18,9 @@
             <tr>
                 <td>{{ $grabacion->id }}</td>
                 <td>{{ $grabacion->fecha }}</td>
-                <td>{{ $grabacion->tema }}</td>
+                <td>
+                    <a href="{{ route('grabacion.show', [$grabacion]) }}">{{ $grabacion->tema }}</a>
+                </td>
                 <td>{{ $grabacion->enlace }}</td>
             </tr>
         @endforeach

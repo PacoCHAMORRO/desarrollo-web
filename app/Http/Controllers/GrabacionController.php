@@ -61,7 +61,7 @@ class GrabacionController extends Controller
      */
     public function show(Grabacion $grabacion)
     {
-        //
+        return view('grabaciones.grabacionShow', compact('grabacion'));
     }
 
     /**
