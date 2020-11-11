@@ -19,3 +19,7 @@ Route::get('/', function () {
 });
 
 Route::resource('grabacion', GrabacionController::class);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
