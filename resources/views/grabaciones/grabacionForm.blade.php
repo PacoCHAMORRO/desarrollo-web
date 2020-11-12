@@ -21,9 +21,10 @@
         <form action="{{ route('grabacion.update', [$grabacion]) }}" method="POST">
         @method('patch')
     @else
-        <form action="{{ route('grabacion.store') }}" method="POST">
+        {!! Form::open(['route' => 'grabacion.store']) !!}
+
     @endif
-        @csrf
+
         <label for="fecha">Fecha:</label>
         <input type="date" name="fecha" value="{{ old('fecha') ?? $grabacion->fecha ?? '' }}">
         <br>
@@ -40,7 +41,14 @@
         <input type="text" name="enlace" value="{{ old('enlace') ?? $grabacion->enlace ?? '' }}">
         <br>
 
+        <select name="tema_id[]" multiple>
+            @foreach ($temas as $tema)
+                <option value="{{ $tema->id }}" {{ in_array($tema->id, $grabacion->temas()->pluck('id')->toArray()) ? 'selected' : '' }}>{{ $tema->tema }}</option>
+            @endforeach
+        </select>
+        <br>
+
         <button type="submit">Aceptar</button>
-    </form>
+    {!! Form::close() !!}
 </body>
 </html>
