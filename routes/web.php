@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/inicio', function () {
+    return view('inicio');
+});
+
 Route::resource('grabacion', GrabacionController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
